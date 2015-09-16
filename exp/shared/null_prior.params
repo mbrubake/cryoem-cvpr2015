@@ -1,0 +1,6 @@
+{
+'prior_name': "'Uniform Prior'",
+
+'prior': "'NullPrior(True)'",
+}
+

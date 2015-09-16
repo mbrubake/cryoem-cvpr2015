@@ -1,0 +1,21 @@
+def make_ext(modname, pyxfilename):
+    from distutils.extension import Extension
+    import os, platform
+    pyxfilename = str(pyxfilename)
+#    os.environ["CC"] = "gcc"
+#    os.environ["CXX"] = "g++"
+#    return Extension(name=modname,
+#                     sources=[pyxfilename],
+#                     extra_link_args=['-fopenmp','-O3'],
+#                     extra_compile_args=['-fopenmp','-O3','-Wno-unused-function'])
+    return Extension(name=modname,
+                     sources=[pyxfilename],
+                     extra_link_args=['-O3'],
+                     extra_compile_args=['-O3','-Wno-unused-function'])
+
+def make_setup_args():
+    import platform
+    if platform.system() == 'Darwin':
+        return dict(script_args=["--compiler=unix"])
+    else:
+        return dict()

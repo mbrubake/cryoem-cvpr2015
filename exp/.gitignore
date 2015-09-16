@@ -1,0 +1,11 @@
+*.pkl
+*.mrc
+model*
+grad*
+diag*
+stdout
+stat
+.*.swp
+gitinfo
+like*
+mstep

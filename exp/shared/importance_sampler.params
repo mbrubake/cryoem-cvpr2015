@@ -1,0 +1,27 @@
+{
+# Ignore the first 50 iterations entirely
+'is_prior_prob': 'max(0.05,2**(-0.005*max(0,iteration-50)))',
+'is_temperature': 'max(1.0,2**(750.0/max(1,iteration-50)))',
+'is_ess_scale': 10,
+
+'is_fisher_chirality_flip': 'iteration < 2500',
+
+'is_on_R':  True,
+'is_global_prob_R': 0.9,
+
+'is_on_I':  True,
+'is_global_prob_I': 1e-10,
+
+'is_on_S':  True,
+'is_global_prob_S': 0.9,
+'is_gaussian_sigmascale_S': 0.67,
+}
+
+# is_on: turn on/off importance sampling
+# is_prior_prob: what proportion of the IS distribution is from the prior the next time an image is seen
+# is_global_prob: what proportion of the IS prior is from the estimated global distribution
+# is_ess_scale: use number of samples equal to this times the effective sample size
+
+# is_gaussian_sigmascale: how the bandwidth of the Gaussian kernel scales with resolution
+# is_fisher_chirality_flip: assume the distribution is bimodal to ensure we don't miss a chirality flip
+

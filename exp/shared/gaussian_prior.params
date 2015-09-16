@@ -1,0 +1,7 @@
+{
+'prior_name': "'Gaussian'",
+
+'gaussprior_stddev':          1.0,
+'prior': "'GaussianPrior(True)'",
+}
+

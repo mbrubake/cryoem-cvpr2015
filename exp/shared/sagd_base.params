@@ -1,0 +1,16 @@
+{
+'sagd_linesearch':          'max_frequency_changed or ((iteration%5 == 0) if iteration < 2500 else\
+                                                       (iteration%3 == 0) if iteration < 5000 else\
+                                                       True)',
+'sagd_linesearch_accuracy': '1.01 if iteration < 10 else \
+                             1.10 if iteration < 2500 else \
+                             1.25 if iteration < 5000 else \
+                             1.50',
+'sagd_linesearch_maxits':   '5 if iteration < 2500 else 3',
+'sagd_incL':                1.0,
+
+'sagd_momentum':      '1 - 1.0/(1.0 + 0.1*iteration)',
+'sagd_learnrate':     '1.0/min(16.0,2**(num_max_frequency_changes))',
+
+'shuffle_minibatches': 'iteration >= 1000',
+}

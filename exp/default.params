@@ -1,0 +1,20 @@
+# These are the default parameters for cryoem.
+
+{
+	'interp_kernel_R':	"'lanczos'",
+	'interp_kernel_size_R':	4,
+	'interp_zeropad_R':	0,
+	'interp_premult_R':	True,
+
+	'interp_kernel_I':	"'lanczos'",
+	'interp_kernel_size_I':	8,
+	'interp_zeropad_I':	1.0,
+	'interp_premult_I':	True,
+
+# number of threads to use
+	'num_threads':		"'auto'",
+
+	'random_seed':		1,
+	'kernel':		"'multicpu'",
+	'checkpoint_frequency':	100,
+}

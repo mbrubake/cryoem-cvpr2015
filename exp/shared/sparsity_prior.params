@@ -1,0 +1,7 @@
+{
+'prior_name': "'Sparsity'",
+
+'sparsity_lambda': 0.9,
+'prior': "'SparsityPrior(True)'",
+}
+

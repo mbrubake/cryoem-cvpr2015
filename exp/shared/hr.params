@@ -1,0 +1,54 @@
+{
+'likelihood': "'UnknownRSLikelihood()'",
+'density_ub': None,
+'density_lb': 0,
+
+'learn_params':                  True,
+'learn_prior_params':            False,
+'learn_likelihood_params':       'num_max_frequency_changes > 5 and iteration % 25 == 0',
+'learn_like_envelope':           False,
+'learn_like_envelope_rho':       0.001**-2,
+'learn_like_sigma_nu':           0.001**-2,
+'learn_like_envelope_min_freq':  0.005,
+
+'sigma':		'noise_std',
+'sigma_out':		'data_std',
+'minisize':		200,
+'test_imgs':		200,
+
+'max_frequency':        'min(0.15, \
+                             0.020 + 0.005 * (0 if iteration < max(150,50*ceil(num_batches/50.0)) else \
+                                              1 if iteration < 2*max(150,50*ceil(num_batches/50.0)) else \
+                                              2+floor(max(0,(iteration-2*max(150,50*ceil(num_batches/50.0)))/150.0))))',
+
+'quad_shiftsigma':      10,
+'quad_shiftextent':     60,
+'quad_undersample':     '1.5 if num_max_frequency_changes < 2 else \
+                         1.25 if num_max_frequency_changes < 4 else \
+                         1.0',
+#'quad_undersample_I':   '1.5 if num_max_frequency_changes < 2 else \
+#                         1.25 if num_max_frequency_changes < 4 else \
+#                         1.0 if num_max_frequency_changes < 6 else \
+#                         0.75 if num_max_frequency_changes < 8 else \
+#                         0.5 if num_max_frequency_changes < 10 else \
+#                         0.25 if num_max_frequency_changes < 12 else \
+#                         0.125 if num_max_frequency_changes < 14 else \
+#                         0.0625',
+'quad_undersample_S':   '1.5 if num_max_frequency_changes < 2 else \
+                         1.25 if num_max_frequency_changes < 4 else \
+                         1.0 if num_max_frequency_changes < 8 else \
+                         0.75 if num_max_frequency_changes < 16 else \
+                         0.5',
+'quad_degree_S':        '1 if num_max_frequency_changes < 1 else \
+                         3 if num_max_frequency_changes < 2 else \
+                         5 if num_max_frequency_changes < 3 else \
+                         "auto"',
+'quad_type_S':          "'hermite' if num_max_frequency_changes < 8 else 'legendre'",
+
+'max_iterations':	10000,
+'evaluate_test_set':    'max_frequency_changed or iteration % 10 == 0',
+'save_iteration':       'iteration % 10 == 0',
+'save_time':            30,
+'checkpoint_frequency': 100,
+}
+

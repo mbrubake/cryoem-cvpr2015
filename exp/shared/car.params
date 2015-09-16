@@ -1,0 +1,6 @@
+{
+'prior_name': "'CAR'",
+'prior': "'CARPrior()'",
+'car_type': "'gauss0.5'",
+'car_tau': 75.0,
+}
