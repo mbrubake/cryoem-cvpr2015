@@ -248,7 +248,7 @@ def generate_phantom_density(N,window,sigma,num_blobs,seed=None):
     coords = gencoords(N,3).reshape((N**3,3))
     inside_window = n.sum(coords**2,axis=1).reshape((N,N,N)) < window**2
 
-    curr_c = n.array([0,0,0])
+    curr_c = n.array([0.0, 0.0 ,0.0])
     curr_n = 0
     while curr_n < num_blobs:
         csigma = sigma*n.exp(0.25*n.random.randn())
