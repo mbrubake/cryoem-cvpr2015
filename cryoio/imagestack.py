@@ -158,15 +158,15 @@ class CombinedImageStack_Iter:
     
     def next(self):
         self.imgI += 1
-        if self.imgI == self.stk.stack_idxs[self.stkI,1]:
+        if self.imgI == self.stack.stack_idxs[self.stkI,1]:
             self.stkI += 1
-            self.imgI = 0
         
-        if self.stkI == self.stk.stack_idxs.shape[0]:
+        if self.stkI == self.stack.stack_idxs.shape[0]:
             raise StopIteration
         else:
-            return self.stk.stacks[self.stkI].get_image(self.imgI)
-
+            return self.stack.stacks[self.stkI].get_image(self.imgI - self.stack.stack_idxs[self.stkI, 0])
+            #stack_idxs[i, 0] = idx of first img in stk i, [i, 1] = idx of last img
+            #get_image requires idx counting from 0, i.e. imgI - stack_idxs[i, 0]
 
 class FourierStack:
     def __init__(self,basestack,premult=None,zeropad=0, caching=True):
